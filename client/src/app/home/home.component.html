@@ -1,0 +1,26 @@
+<section>
+    <h1>Site Metadata Resolver</h1>
+    <mat-card>
+        <form #urlForm="ngForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Enter url</mat-label>
+                <input type="url" matInput placeholder="url" name = "url" [(ngModel)] = "url" required #spy #urlName="ngModel" pattern="https?://.+">
+                <mat-error *ngIf="!(urlName.valid || urlName.pristine)">
+                    url is required, and start with http or https.
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!urlForm.form.valid">Get Data</button>
+        </form>
+        <div class="err" *ngIf="err">
+            {{err}}
+        </div>
+    </mat-card>
+    <mat-card *ngIf="resMetaData">
+        <h4>The Metadata for site: {{resMetaData.title}}</h4>
+        <div><b>Title:</b> {{resMetaData.title}} </div>
+        <div *ngIf="resMetaData.description"><b>Description:</b> {{resMetaData.description}}</div>
+        <div><b>url:</b> {{resMetaData.url}}</div>
+        <div><b>Image url:</b> {{resMetaData.image}}</div>
+        <img [src]="resMetaData.url + resMetaData.image" (error)="onImgError($event)" alt="pic" height="50" width="50">
+    </mat-card>
+</section>
