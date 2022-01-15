@@ -10,14 +10,23 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 //////////////////////////////////////////
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { BooksComponent } from './books/books.component';
+import { BooksdeComponent } from './booksde/booksde.component';
+import { AddBookComponent } from './add-book/add-book.component';
+import { AddAuthorComponent } from './add-author/add-author.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    BooksComponent,
+    BooksdeComponent,
+    AddBookComponent,
+    AddAuthorComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,8 @@ import { HomeComponent } from './home/home.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

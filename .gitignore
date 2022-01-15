@@ -1,3 +1,4 @@
 # dependencies
 server/node_modules/*
-server/node_modules/*
+server/seviceAccountKey.json
+client/node_modules/*

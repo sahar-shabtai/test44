@@ -1,0 +1,22 @@
+<h1>add author</h1>
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="example-container">
+                <mat-form-field appearance="outline">
+                  <input matInput  type="text" placeholder="Enter first name" [(ngModel)] = "firstname"
+                   name = "firstname"
+                   required
+                   #userfirst = "ngModel">                     
+                </mat-form-field>
+            </div>
+            <div class="example-container">
+                <mat-form-field appearance="outline">
+                  <input matInput  type="number" placeholder="Enter last name" [(ngModel)] = "lastname"
+                   name = "lastname"
+                   required
+                   #userlast = "ngModel">                     
+                </mat-form-field>
+            </div>
+            <div >
+                <button mat-raised-button class="btnb" type="submit" [disabled]="!userForm.form.valid">Add Author</button>
+            </div>
+        </form>

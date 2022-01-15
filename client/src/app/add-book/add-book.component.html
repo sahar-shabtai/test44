@@ -1,0 +1,30 @@
+<h1>add book</h1>
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="example-container">
+                <mat-form-field appearance="outline">
+                  <input matInput  type="text" placeholder="Enter book name " [(ngModel)] = "bookName"
+                   name = "bookName"
+                   required
+                   #userfirst = "ngModel">                     
+                </mat-form-field>
+            </div>
+            <div class="example-container">
+                <mat-form-field appearance="outline">
+                  <input matInput  type="text" placeholder="Enter isbn" [(ngModel)] = "isbn"
+                   name = "isbn"
+                   required
+                   #userlast = "ngModel">                     
+                </mat-form-field>
+            </div>
+            <div class="example-container">
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Author</mat-label>
+                    <mat-select [(ngModel)] ="authorid" name="subject" required>
+                        <mat-option *ngFor="let author of authors" [value]="author.id">{{author.firstName}} {{author.lastName}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div >
+                <button mat-raised-button class="btnb" type="submit" [disabled]="!userForm.form.valid">Add Author</button>
+            </div>
+        </form>
